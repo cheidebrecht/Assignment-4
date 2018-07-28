@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang ="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 3</title>
+
+
+</head>
+
+<body>
+
+<!-------------------------------Part 1-------------------------------->    
+
+<table id ="part 1">
+    <tr id ="Grade 1">
+        <td>Grade 1</td>
+        <td>6</td>
+    </tr>
+    
+    <tr id ="Grade 2">
+        <td>Grade 2</td>
+        <td>7</td>
+    </tr>     
+
+    <tr id ="Grade 3">
+        <td>Grade 3</td>
+        <td>8</td>
+    </tr>     
+
+    <tr id ="Grade 4">
+        <td>Grade 4</td>
+        <td>9</td>
+    </tr>     
+
+    <tr id ="Grade 5">
+        <td>Grade 5</td>
+        <td>10</td>
+    </tr>     
+
+    <tr id ="Grade 6">
+        <td>Grade 6</td>
+        <td>11</td>
+    </tr>     
+</table>
+    <script type="text/javascript">
+        var array = [
+            ['Grade 1', 6],
+            ['Grade 2', 7],
+            ['Grade 3', 8],
+            ['Grade 4', 9],
+            ['Grade 5', 10],
+            ['Grade 6', 11],
+        ];
+
+        var i = 0;
+        function determineGrade(birthDate)
+        {
+            var i = 0;
+            var currentDate = new Date();
+            var toYear = currentDate.getFullYear();
+            var age = toYear - birthDate;
+                    while (i < array.length) 
+                { 
+                    if (array[i][1] === age) 
+                    {
+                        document.getElementById(array[i][0]).style.backgroundColor="#90EE90";    
+                    }
+                    i++;
+                }
+        }
+        determineGrade(2010, 9, 18);    
+    </script>
+
+<!-------------------------------Part 2-------------------------------->
+
+    <script type ="text/javascript">
+    function validateEmail(email)
+    {
+        var emailOutput = document.createElement("p");
+        var emailRegex = /\w*.rrc\W?\w*/i;
+        var results = emailRegex.test(email);
+        if (results === true)
+        {
+            document.body.appendChild(emailOutput);
+            emailOutput.appendChild(document.createTextNode("Email is Valid"));
+        } else 
+        {
+            document.body.appendChild(emailOutput);
+            emailOutput.appendChild(document.createTextNode("Not a Valid Email"));
+        }  
+    }   
+    validateEmail("cheidebrecht@RRC.CA")
+    </script>
+
+<!-------------------------------Part 3-------------------------------->    
+
+<table id = "Part 3">
+    <tr class = "Calculation">
+            <td>5</td>
+            <td>3</td>
+            <td>8</td>
+    </tr>
+
+    <tr class = "Calculation">
+            <td>7</td>
+            <td>6</td>
+            <td>13</td>
+    </tr>
+    
+    <tr class = "Calculation">
+            <td>5</td>
+            <td>5</td>
+            <td>10</td>
+    </tr>
+
+    <tr class = "Calculation">
+            <td>8</td>
+            <td>3</td>
+            <td>13</td>
+    </tr>
+
+    <tr class = "Calculation">
+            <td>4</td>
+            <td>7</td>
+            <td>11</td>
+    </tr>
+
+    <tr class = "Calculation">
+            <td>3</td>
+            <td>9</td>
+            <td>12</td>
+    </tr>
+
+    <tr class = "Calculation">
+            <td>8</td>
+            <td>5</td>
+            <td>12</td>
+    </tr>
+
+    <tr class = "Calculation">
+            <td>2</td>
+            <td>6</td>
+            <td>8</td>
+    </tr>
+
+    <tr class = "Calculation">
+            <td>5</td>
+            <td>9</td>
+            <td>14</td>
+    </tr>
+
+    <tr class = "Calculation">
+            <td>6</td>
+            <td>6</td>
+            <td>12</td>
+    </tr>       
+</table>
+
+<script type ="text/javascript">
+
+    var data = document.getElementsByClassName("Calculation");
+
+    function checkCalculate(data){
+        for(var i = 0; i < data.length; i++) {
+            var number1 = Number(data[i].childNodes[1].textContent) 
+            var number2 = Number(data[i].childNodes[3].textContent) 
+            var number3 = Number(data[i].childNodes[5].textContent)
+            var answer = (number1 + number2);
+            var correctAnswer = document.createElement("tr");
+            var textnode = document.createTextNode(answer);
+            correctAnswer.appendChild(textnode);
+            
+            if(answer!==number3) {
+                data[i].appendChild(correctAnswer);    
+                data[i].style.background = "#FA8072";    
+            } 
+        }
+    }
+    
+    checkCalculate(data)
+</script>
+
+
+
+
+
+
+</body>
+</html>
